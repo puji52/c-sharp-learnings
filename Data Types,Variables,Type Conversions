@@ -38,18 +38,21 @@ namespace Form
 -->Handling Errors 
 (9,7) indicates that the error is on line 9, beginning at the 7th character (including spaces)
 — Variables can only contain underscores, letters, and digits. It’s also good practice to use camelCase styling
+
 -->Type Conversion:
-implicit conversion: happens automatically if no data will be lost in the conversion. That’s why it’s possible to convert an int (which can hold less data) to a double 
+->implicit conversion: happens automatically if no data will be lost in the conversion. That’s why it’s possible to convert an int (which can hold less data) to a double 
 (which can hold more), but not the other way around.
 Ex:int positiveInt = 3;
 // Turn it into a double
 double positiveDouble = positiveInt;
-explicit conversion: requires a cast operator to convert a data type into another one. If we do want to convert a double to an int, we could use the operator (int).
+
+->explicit conversion: requires a cast operator to convert a data type into another one. If we do want to convert a double to an int, we could use the operator (int).
 Ex:double positiveDouble = 3.75
 double negativeDouble = -3.75;
 // casting double to int truncates the decimal portion
 int positiveInt = (int)positiveDouble; // 3
 int negativeInt = (int)negativeDouble; // -3
+
 -->Converting Data Types
 using System;
 namespace FavoriteNumber
