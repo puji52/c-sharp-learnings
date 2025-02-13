@@ -1,4 +1,6 @@
-Basic c# code:
+-->C# is a Valuable Skill, its robust design and the popularity of frameworks supporting the language, C# is an incredibly versatile tool for a wide range of applications. 
+Mastering C# enables you to develop chat applications, financial trading programs, medical record systems, and many other types of software.
+->Basic c# code:
 using System;
 namespace Pujitha
 {
@@ -12,3 +14,7 @@ namespace Pujitha
 }
 Explanation:It starts with using System;, which allows you to use classes from the System namespace. The namespace Pujitha groups related classes. 
 Inside, the Program class contains the Main method, which is the entry point of the program. The Console.WriteLine("Pujitha!"); line prints “Pujitha!” to the console.
+-->C# is used to make interactive websites, mobile apps, video games, and desktop applications.
+->Console.WriteLine() prints text to the console.
+->Console.ReadLine() captures user input in the console.
+->Comments are made with // or /* and */
