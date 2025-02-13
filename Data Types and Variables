@@ -1,0 +1,36 @@
+-->C# is known as a strongly-typed language 
+-->The functions do the following:
+capitalize: will turn lowercase characters into uppercase characters
+square: will square a number
+evaluate: will determine if an input is true or false
+-->The data types include:
+int - whole numbers, like: 1, -56, 948,Size (bytes):4
+float - Floating point numbers like:3.4,5.9,Size (bytes):4
+double - decimal numbers(more precise than float), like: 239.43909, -660.01,Size (bytes):8
+char - single characters, like: “a”, “&”, “£”,Size (bytes):2
+string - string of characters, like: “dog”, “hello world”,Size (bytes):2 (per char)
+bool - boolean values, like: true or false,Size (bytes):1
+-->Declare a variable:
+string countryName = "India";
+using System;
+namespace Form
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      // Create Variables
+      string name="Shadow";
+      string breed="Golden Retriever";
+      int age=5;
+      double weight=65.22;
+      bool spayed=true;
+      Console.WriteLine(name);
+      // Print variables to the console
+      Console.WriteLine(breed);
+      Console.WriteLine(age);
+      Console.WriteLine(weight);
+      Console.WriteLine(spayed);
+    }
+  }
+}
