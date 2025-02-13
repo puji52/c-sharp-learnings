@@ -12,6 +12,7 @@ string - string of characters, like: “dog”, “hello world”,Size (bytes):2
 bool - boolean values, like: true or false,Size (bytes):1
 -->Declare a variable:
 string countryName = "India";
+-->creating variables with types
 using System;
 namespace Form
 {
@@ -34,3 +35,46 @@ namespace Form
     }
   }
 }
+-->Handling Errors 
+(9,7) indicates that the error is on line 9, beginning at the 7th character (including spaces)
+— Variables can only contain underscores, letters, and digits. It’s also good practice to use camelCase styling
+-->Type Conversion:
+implicit conversion: happens automatically if no data will be lost in the conversion. That’s why it’s possible to convert an int (which can hold less data) to a double 
+(which can hold more), but not the other way around.
+explicit conversion: requires a cast operator to convert a data type into another one. If we do want to convert a double to an int, we could use the operator (int).
+-->Converting Data Types
+using System;
+namespace FavoriteNumber
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      // Ask user for fave number
+      Console.Write("Enter your favorite number!: ");
+
+      // Turn that answer into an int
+      
+      // Attempt 1: use implicit conversion
+      // int faveNumber = Console.ReadLine();
+      
+      // Attempt 2: use explicit conversion
+      // int faveNumber = (int)Console.ReadLine();
+      
+      // Attempt 3: use Convert method
+      int faveNumber = Convert.ToInt32(Console.ReadLine());
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
