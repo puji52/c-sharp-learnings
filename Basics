@@ -1,0 +1,14 @@
+Basic c# code:
+using System;
+namespace Pujitha
+{
+  class Program
+  {
+    static void Main()
+    {
+      Console.WriteLine("Pujitha!");    
+     }
+  }
+}
+Explanation:It starts with using System;, which allows you to use classes from the System namespace. The namespace Pujitha groups related classes. 
+Inside, the Program class contains the Main method, which is the entry point of the program. The Console.WriteLine("Pujitha!"); line prints “Pujitha!” to the console.
