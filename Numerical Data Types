@@ -1,0 +1,34 @@
+**int
+Syntax:int variableName = 7;
+**double
+Syntax:// both of these are valid double declarations
+**double variableOne = 39.766;
+double variableTwo = 42.686d;
+**decimal
+Syntax:decimal variableName = 489872.76m;//we have to define m to make c# understand that it is decimal and not double
+**float
+Syntax:float variableName = 489872.76f;//creating a float, the number must be followed by the character f
+Example:
+Several large pizza chains employ C# developers. Let’s imagine that you work for the chain, Giant Brutus. Your boss gives you some data and wants you to enter it into a C# program.
+CODE:
+using System;
+namespace Numbers
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      // Number of pizza shops
+       int pizzaShops=4332;
+      // Number of employees
+       int totalEmployees=86928;
+      // Revenue
+      decimal revenue=390819.28m;
+      // Log the values to the console:
+      Console.WriteLine(pizzaShops);
+      Console.WriteLine(totalEmployees);
+      Console.WriteLine(revenue);
+   	}
+  }
+}
+
