@@ -28,5 +28,28 @@ It is a truth universally acknowledged, that a single man in possession of a goo
 
 "My dear Mr. Bennet," said his lady to him one day, "have you heard that Netherfield Park is let at last?"
 
-String Concatenation:"+" operator
+-->String Concatenation:"+" operator
+-->string interpolation, which enables us to insert our variable values and expressions in the middle of a string, without needing to consider spaces and punctuation separately.
+Example:
+using System;
+namespace StoryTime
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      // Declare the variables
+      string beginning = "Once upon a time,";
+      string middle = "The kid climbed a tree";
+      string end = "Everyone lived happily ever after.";
+
+      // Interpolate the string and the variables
+      string story=$"{beginning} {middle}, and {end}";
+
+      // Print the story to the console 
+      Console.WriteLine(story);
+    }
+  }
+}
+Output:Once upon a time, The kid climbed a tree, and Everyone lived happily ever after.
 
