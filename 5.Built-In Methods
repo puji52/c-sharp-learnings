@@ -1,0 +1,35 @@
+Math.Abs() — Finds the absolute value of a number. Example: Math.Abs(-5) returns 5.
+Math.Sqrt() — Finds the square root of a given double. Example: Math.Sqrt(16) returns 4.
+Math.Floor() — Rounds the given double or decimal down to the nearest whole number. Example: Math.Floor(8.65) returns 8.
+Math.Ceiling() — The counterpart of Math.Floor(), rounds a given double or decimal up to the nearest whole number. Example: Math.Ceiling(8.65) returns 9.
+Math.Min() — Returns the smaller of two numbers of the same type. Example: Math.Min(39, 12) returns 12.
+Math.Max() — The counterpart of Math.Min(), returns the larger of two numbers of the same type. Example: Math.Max(39, 12) returns 39
+combine multiple arithmetic methods by nesting them within one another:
+// absolute value of -10 is 10
+// absolute value of 8 is 8
+Math.Min(Math.Abs(-10), Math.Abs(8)); // 8
+Example:
+In this exercise, we’re going to use built-in methods to determine which number is smaller between the square roots of two different numbers.
+Example:using System;
+namespace LowestNumber
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      // Create variables 
+      int numberOne = 12932;
+      int numberTwo = -2828472;
+
+      // Use built-in methods and save to variable 
+      double numberOneSqrt = Math.Floor(Math.Sqrt(numberOne));
+
+      // Use built-in methods and save to variable 
+      double numberTwoSqrt = Math.Floor(Math.Sqrt(Math.Abs(numberTwo)));
+
+      // Print the lowest number
+      Console.WriteLine(Math.Min(numberTwoSqrt, numberOneSqrt));
+    }
+  }
+}
+Output:113
