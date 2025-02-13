@@ -31,4 +31,95 @@ namespace Numbers
    	}
   }
 }
+Arithmetic Operators:
+Example:Did you know that your age would be different on another planet? Different planets orbit the sun at different rates, 
+so 1 year on Earth can be much shorter or much longer on another planet, depending on their position in the solar system
+using System;
+namespace PlanetCalculations
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {  
+      // Your Age
+       int userAge=22;
+
+      // Length of years on Jupiter (in Earth years)
+      double jupiterYears=11.86;
+
+      // Age on Jupiter
+      double jupiterAge=userAge/jupiterYears;
+
+      // Time to Jupiter
+      double journeyToJupiter=6.142466;
+
+      // New Age on Earth
+       double newEarthAge=userAge+journeyToJupiter;
+
+      // New Age on Jupiter
+       double newJupiterAge = newEarthAge/jupiterYears;
+
+
+      // Log calculations to console
+      Console.WriteLine(jupiterAge);
+      Console.WriteLine(newEarthAge);
+      Console.WriteLine(newJupiterAge);
+    }
+  }
+}
+Output:
+1.854974704890388
+28.142466
+2.372889207419899
+
+Operator Shortcuts:
+->C# has a shorthand syntax for adding 1 to an existing variable, ++, called the increment operator.
+We can also do the same with the subtraction symbol --, called the decrement operator.
+->+=, -=, *=, and /= are known as compound assignment operators.
+example:
+using System;
+namespace MakingProgress
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      // Declare steps variable
+      int steps=0;
+      // Two steps forward 
+      steps+=2;
+      // One step back 
+      steps-=1;
+      // Print result to the console
+      Console.WriteLine(steps);
+    }
+  }
+}
+output:1
+
+Modulo:A modulo returns a remainder
+Example:You’re teaching computer science in a classroom and need to break up your students into teams.You want to find a number that will
+go evenly into 18 (without a remainder) so that each group has the same number of students. The groups should have more than 2 students
+in each group, but no more than 5.
+Code:
+using System;
+namespace ClassTeams
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      // Number of students
+      int students=18;
+      // Number of students in a group
+      int groupSize=3;
+
+      // Does groupSize go evenly into students?
+      Console.WriteLine(students%groupSize);
+
+    }
+  }
+}
+Output:0
+
 
