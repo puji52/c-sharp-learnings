@@ -18,3 +18,7 @@ Inside, the Program class contains the Main method, which is the entry point of 
 ->Console.WriteLine() prints text to the console.
 ->Console.ReadLine() captures user input in the console.
 ->Comments are made with // or /* and */
+-->The functions do the following:
+capitalize: will turn lowercase characters into uppercase characters
+square: will square a number
+evaluate: will determine if an input is true or false
