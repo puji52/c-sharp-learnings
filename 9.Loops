@@ -1,0 +1,84 @@
+while Syntax:while loops are useful when you know at what point a program should stop rather than the number of times it should repeat.
+while (condition) 
+{
+  statement;
+}
+Do...While Loop:do...while loop will continue to run until a stopping condition is met. One key difference is that no matter what, a do...while loop will always run once.
+do
+{
+  statement;
+} while (condition);
+for loop:The for loop tells the computer how many times to repeat the instructions using the for keyword and three expressions inside of parentheses.
+Each of these expressions uses what’s known as an iterator variable, which is a variable that keeps track of how many times the program goes through the loop.
+for (initializer; conditional expression; iteration expression)
+{
+  statement;
+}
+foreach:The foreach loop is used to iterate over collections, such as an array.
+foreach (type element in sequence)
+{
+  statement;
+}
+->foreach loop to iterate through an array. But we can also use a for loop to iterate through an array:
+Comapring Loops
+string[] items = { "potion", "dagger", "shield", "plant" };
+
+foreach (string item in items)
+{
+  Console.WriteLine(item);
+}
+--->while loops are good when you know your stopping condition, but not how many times the loop will need to run.
+do...while loops are only necessary if you definitely want something to run once, but then stop if a condition is met.
+for loops are best if you want something to run a specific number of times, rather than given a certain condition.
+foreach loops are the best way to loop over an array, or any other collection
+
+Jump statements:break,continue
+example:
+int i = 0;
+while (i < 10)
+{
+  if (i < 9)
+  {
+    // we need to increment i here to prevent an infinite loop so that i does not get stuck at 0
+    i++;
+    continue;
+  }
+  // the print statement below will never be reached without incrementing i within the if statement
+  Console.WriteLine(i);
+
+  
+  // if the iteration expression was instead placed here, i would always equal 0, yielding an infinite loop!
+  // i++;
+}
+Example:
+You’ve decided to go back to the pomodoro application. This time, you don’t want the alarm to ring endlessly. Once it rings 3 times, it should shut off even if the button has not been clicked.
+code:
+using System;
+
+namespace JumpStatements
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      bool buttonClick = false;
+      int counter = 0;
+      
+      do
+      {
+        Console.WriteLine("Alarm Ringing");
+        counter++;
+        
+        if (counter == 3)
+        {
+          break;
+        }
+      } while(!buttonClick);
+    }
+  }
+}
+output:
+Alarm Ringing
+Alarm Ringing
+Alarm Ringing
+
