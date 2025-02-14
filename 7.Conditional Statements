@@ -1,0 +1,38 @@
+if statement
+Syntax:
+if (true) {
+  // This code is executed.
+  Console.WriteLine("Hello User!");
+}
+
+if (false) {
+  // This code is skipped.
+  Console.WriteLine("This won't be seen :(");
+}
+Else clause:
+if (true) {
+  // This block will run.
+  Console.WriteLine("Seen!");
+} else {
+  // This will not run.
+  Console.WriteLine("Not seen!");
+}
+If and Else If:
+int x = 100, y = 80;
+ 
+if (x > y)
+{
+  Console.WriteLine("x is greater than y");
+} 
+else if (x < y) 
+{
+  Console.WriteLine("x is less than y");
+} 
+else
+{
+  Console.WriteLine("x is equal to y");
+}
+Ternary Operator:
+condition ? expression1 : expression2
+break;
+default:
