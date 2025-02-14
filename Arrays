@@ -1,0 +1,33 @@
+In C#, arrays are a collection of values that all share the same data type. An array of type string could hold a list of someone’s favorite songs, or an array of type int could store a
+collection of user IDs.
+// These arrays store ints, strings, and doubles, respectively
+int[] x; 
+string[] s; 
+double[] d; 
+-->define and initialize array at the same time
+int[] plantHeights = { 3, 4, 6 };
+-->The new keyword signifies that we are instantiating a new array from the array class.
+int[] plantHeights = new int[] { 3, 4, 6 };
+--->// Initial declaration
+int[] plantHeights;
+// This will cause an error
+// plantHeights = { 3, 4, 6 }; 
+// This will work
+plantHeights = new int[] { 3, 4, 6 };   
+-->Array length can be found by ".Length" property..Length property will return the number of items in an array and 0 if the array is empty.
+-->Accessing Array Items
+int[] plantHeights = {3, 4, 6};
+// plantTwoHeight will be 4
+int plantTwoHeight = plantHeights[1];
+output:4
+
+-->Editing Arrays
+When we create an array with a known length but no known values, it uses the default type value (0 for int, null for string).
+-->Built-In Methods
+Array.Sort()-sorts an array
+Array.IndexOf() method takes a value and returns its index within the array
+int[] plantHeights = { 3, 6, 4, 1, 6, 8 };
+ // Returns 1
+Array.IndexOf(plantHeights, 6);
+->IndexOf() typically takes 2 parameters: the first is the array and the second is the value whose index we’re looking for.
+->The Array.Reverse() method returns the array with the original elements in reverse order.
