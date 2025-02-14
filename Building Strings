@@ -53,3 +53,82 @@ namespace StoryTime
 }
 Output:Once upon a time, The kid climbed a tree, and Everyone lived happily ever after.
 
+--> String Methods: 
+->.Length:how many characters exist in a string with this method.
+->.IndexOf():find the position of a specific character or substring using.
+Positions start at 0 and increment by 1.
+->If a word exist in the string it retruns 1 and ifit doesn't it returns -1.
+->If we pass it an empty string, it will return 0. If it occurs more than once, it will return the first instance.
+Example of String Methods:
+You’ve been asked to build a program that verifies some information about a piece of data.
+Code:
+using System;
+namespace PasswordCheck
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      // Create password
+      string password = "a92301j2add";
+      // Get password length
+      int passwordLength = password.Length;
+      // Check if password uses symbol
+      int passwordCheck=password.IndexOf("!");
+      // Print results
+      Console.WriteLine($"The user password is {password}. Its length is {passwordLength} and it receives a {passwordCheck} check.");
+    }
+  }
+}
+Output:
+The user password is a92301j2add. Its length is 11 and it receives a -1 check.
+-->.Substring():The .Substring() method is a string method that returns a substring of a string starting at the specified index. 
+It will return all characters from that index to the end unless a maximum length is specified. If the starting index equals the string
+length, it returns an empty string (""). If the index is greater than the string length, it throws an ArgumentOutOfRangeException.
+Syntax:.Substring(int startIndex, int length) if we need we can only give index also both are not required.
+
+-->Manipulate Strings
+->.ToUpper() and .ToLower()
+change the case of our strings using the methods.
+Example:You’re writing a movie script but are having trouble following the style guide. To do so, transform this sentence so that the 
+first two words (Close on) are in all caps and the rest are lowercase.
+Code:
+using System;
+namespace MovieScript
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      // Script line
+      string script = "Close on a portrait of the HANDSOME PRINCE -- as the BEAST'S giant paw slashes it.";
+
+      // Get camera directions
+      int charPosition = script.IndexOf("Close");
+      int length = "Close on".Length;
+      string cameraDirections = script.Substring(charPosition, length);
+
+      // Get scene description
+      charPosition = script.IndexOf("a portrait");
+      string sceneDescription = script.Substring(charPosition);
+
+      // Make camera directions uppercase
+      cameraDirections=cameraDirections.ToUpper();
+
+      // Make scene description lowercase
+      sceneDescription=sceneDescription.ToLower();
+
+      // Print results
+      Console.WriteLine($"{cameraDirections} {sceneDescription}");
+    }
+  }
+}
+Output:CLOSE ON a portrait of the handsome prince -- as the beast's giant paw slashes it.
+
+
+
+
+
+
+
+
