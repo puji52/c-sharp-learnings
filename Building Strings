@@ -90,6 +90,7 @@ Syntax:.Substring(int startIndex, int length) if we need we can only give index 
 -->Manipulate Strings
 ->.ToUpper() and .ToLower()
 change the case of our strings using the methods.
+PARTS OF STRINGS: bracketNotation[], .Substring()
 Example:You’re writing a movie script but are having trouble following the style guide. To do so, transform this sentence so that the 
 first two words (Close on) are in all caps and the rest are lowercase.
 Code:
