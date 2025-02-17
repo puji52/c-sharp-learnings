@@ -82,4 +82,152 @@ static void Main(string[] args)
 }
 Output:
 We would get an error like:
-error CS0176: Static member 'Book.Definition' cannot be accessed with an instance reference, qualify it with a type name instead
+error CS0176: Static member 'Book.Definition' cannot be accessed with an instance reference, qualify it with a type name instead 
+
+Static Methods:
+->Like other static members, static methods are called from the class rather than an instance
+->Static methods can only access other static members. They cannot access instance members
+
+Static Constructors
+->Instance Constructor:
+Runs each time a new instance of a class is created.
+Sets values for instance fields and properties.
+
+----->Static Constructor:
+Runs once before the class is used.
+Sets values for static fields and properties.
+Executed once per program execution.
+Labeling a static constructor with private or public produces an error
+A class may only have one static constructor, meaning they also cannot be overloaded. 
+
+Triggers for Static Constructor:
+When an object is created from the type.
+When another static member of the class is accessed.
+
+----->Static Classes:
+A static class cannot be instantiated and may only contain static members, so we should only create one if we are making a utility or library, like Math or Console.
+These two common classes are static because they are just tools — they don’t need specific instances:
+Math.Min(34, 54);
+Console.WriteLine("Hello, world!");
+Utility.Useful();
+
+Ex:
+using System;
+
+namespace Review
+{
+  class Forest
+  {
+    // FIELDS/PROPERTIES
+    public string Name
+    { get; set; }
+
+    public int Trees
+    { get; set; }
+
+    private int age;
+    public int Age
+    { 
+      get { return age; }
+      private set {
+        if (value < 0) 
+        {
+          age = 0;
+        } 
+        else 
+        {
+          age = value; 
+        }
+      }
+    }
+
+    private string biome;
+    public string Biome
+    {
+      get { return biome; }
+      set
+      {
+        string[] validBiomes = {"Tropical", "Temperate", "Boreal"};
+        if (Array.IndexOf(validBiomes, value) >= 0) 
+        {
+          biome = value;
+        }
+        else 
+        {
+          biome = "Unknown";
+        }
+      }
+    }
+    
+    public static int ForestsCreated
+    {
+      get; private set;
+    }
+
+    private static string forestFacts;
+    private static string ForestFacts
+    { 
+      get 
+      {
+        return forestFacts;
+      } 
+    }
+
+
+    // CONSTRUCTORS
+    public Forest(string name, string biome)
+    {
+      Name = name;
+      Biome = biome;
+      Age = 0;
+      ForestsCreated++;
+    }
+    public Forest(string name) : this(name, "Unknown")
+    { }
+    static Forest() 
+    {
+      forestFacts = "Forests provide a diversity of ecosystem services including:\n\taiding in regulating climate.\n\tpurifying water.\n\tmitigating natural hazards such as floods.\n";
+      ForestsCreated = 0;
+    }   
+    // METHODS
+    public int Grow()
+    {
+      Trees += 30;
+      Age += 1;
+      return Trees;
+    }
+    
+    public int Burn()
+    {
+      Trees -= 20;
+      Age += 1;
+      return Trees;
+    }
+
+    public static void PrintForestFacts()
+    {
+      Console.WriteLine(ForestFacts);
+    }   
+  }
+}
+using System;
+
+namespace Review
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      
+      Console.WriteLine(Forest.ForestsCreated);
+       Forest f1 = new Forest("Amazon", "Tropical");
+      Forest f2 = new Forest("Congo");
+      
+      Console.WriteLine(Forest.ForestsCreated);
+    }
+  }
+}
+Output:
+0
+2
+
