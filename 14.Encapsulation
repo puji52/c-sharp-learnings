@@ -1,0 +1,85 @@
+Properties:
+A property controls access to a field, allowing us to validate values before they are set. A property consists of two methods:
+a get() method, or getter, called when the property is accessed
+a set() method, or setter, called when the property is assigned a value
+Ex:without validation
+public int area;
+public int Area
+{
+  get { return area; }
+  set { area = value; }
+}
+
+Auto-Implemented properties:
+->The basic getter and setter pattern is so common that there’s a shorthand called an auto-implemented property (sometimes also called an 
+“automatic property”). This allows us to write more concise and readable code. 
+public string Size
+{ get; set; }
+
+Get-only properties:
+->use properties for field validation. By applying public or private, we can have greater control over field access.
+->if we want programs to be able to get the value, but not set it, we can do one of the following:
+Omit the set() method.
+Make the set() method private.
+
+-->Example without set():
+public string Area
+{
+  get { return area; }
+}
+
+Attempting to set Area results in:
+error CS0200: Property or indexer 'Shape.Area' cannot be assigned to (it is read-only)
+
+Example with private set():
+public int Area
+{
+  get { return area; }
+  private set { area = value; }  
+}
+Output:
+Attempting to set Area in Main() results in:
+error CS0272: The property or indexer 'Shape.Area' cannot be used in this context because the set accessor is inaccessible
+
+Setting Area without including set() results in an error regardless of where it is accessed. When set() is private, 
+we get an error only outside the Shape class.
+
+Generally, we prefer a private set() because it allows other class methods to set the property.
+
+->Static Fields and Properties:
+ Static members are members that are associated with the class itself. They are defined using the static keyword, which should follow 
+ the access modifier if one is present.
+ Ex:
+ class Book
+{
+  // Instance property
+  public string Title
+  { get; set; }
+
+  // Static property
+  public static string Definition { get; set; } =  "A connected collection of pages";
+}
+->In the preceding code sample, we define two properties for the Book class. Title is a non-static property, so any instances of the 
+Book class we create will each have its own Title property.
+->Definition is a static property associated with the Book class. Within the class definition, static members can be referenced by their name alone, or using the class name and dot (.) notation. Outside the class definition, we must access static members using the class name and dot (.) notation. Note that we do not need to make an instance of Book to access its static member:
+
+static void Main(string[] args)
+{
+  // Outside the Book class, we must access Definition using the class name and dot notation
+  Console.WriteLine(Book.Definition);
+  // Prints "A connected collection of pages"
+}
+
+Since Definition is an auto-implemented static property, the backing private field that is created automatically will also be static. 
+If the related field and property are defined separately, they must match in being static or non-static.
+
+If we tried to access a static member from an instance:
+static void Main(string[] args)
+{
+  Book novel = new Book();
+  novel.Title = "Yesterday and Tomorrow"; // OK. Title is an instance property
+  Console.WriteLine(novel.Definition); // Would cause an error since Definition is static
+}
+Output:
+We would get an error like:
+error CS0176: Static member 'Book.Definition' cannot be accessed with an instance reference, qualify it with a type name instead
