@@ -1,1 +1,63 @@
+Lists
+To use lists in every code,first we must write this line : using System.Collections.Generic;
 
+Syntax:List<string> citiesList = new List<string>();
+Add():citiesList.Add("Delhi");
+Access elements:string city = citiesList[0];
+citiesList[0] = "New Delhi";
+
+->We can find the number of elements in the list using the Count property.
+List<string> citiesList = new List<string> { "Delhi", "Los Angeles" };
+int numberCities = citiesList.Count;
+// numberCities is 2
+
+->We can check if an element exists in a list using the Contains() method
+bool hasDelhi = citiesList.Contains("Delhi");
+bool hasDubai = citiesList.Contains("Dubai");
+// hasDelhi is true, hasDubai is false
+
+Methods:
+Remove() :Remove() method to remove a specific item from a list. It expects the specific item as an argument and returns true.
+Ex:
+List<string> citiesList = new List<string> { "Delhi", "Los Angeles", "Kyiv" };
+bool success = citiesList.Remove("Delhi");
+// success is true
+
+Clear() method:To remove all the elements from the list.
+List<string> citiesList = new List<string> { "Delhi", "Los Angeles", "Kyiv" };
+citiesList.Clear();
+Console.WriteLine(citiesList.Count);
+// Output: 0
+
+Looping through Lists:We can do this by using for(here you have to use Count) and foreach loop.
+
+Random method:Random rand = new Random();
+-->Accessing Out of Bounds
+->We can add infinite number of items into list and edit,access them using [] notations.last index will be 999 so access items within this range.
+Check the Count of a list before accessing an index, as shown below.
+List<int> numbers = new List<int>();
+for (int i = 0 ; i < 1000; i++)
+{
+  numbers.Add(i);
+}
+int index = 1001;
+if (index < numbers.Count)
+{
+  Console.WriteLine(numbers[index])
+}
+Working with Ranges:
+-AddRange() — takes an array or list as an argument. Adds the values to the end of the list. Returns nothing.
+-InsertRange() — takes an int and array or list as an argument. Adds the values at the int index. Returns nothing.
+-RemoveRange() — takes two int values. The first int is the index at which to begin removing, and the second int is the number of elements to remove. Returns nothing.
+-GetRange() — takes two int values. The first int is the index of the first desired element, and the second int is the number of elements in the desired range. 
+Returns a list of the same type.
+-Ex:
+List<string> places = new List<string> { "first", "second" };
+places.AddRange(new string[] { "fifth", "sixth" });
+// List is  "first", "second", "fifth", "sixth" ]
+places.InsertRange(2, new string[] { "third", "fourth"});
+// List is [ "first", "second", "third", "fourth", "fifth", "sixth" ]
+places.RemoveRange(4, 2);
+// List is [ "first", "second", "third", "fourth" ]
+List<string> newPlaces = places.GetRange(0, 3);
+// New list is [ "first", "second", "third" ]
