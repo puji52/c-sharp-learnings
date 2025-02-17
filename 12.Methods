@@ -1,0 +1,119 @@
+--->The designer of C# is "Anders Hejlsberg"
+
+Calling Methods:
+->We call methods using this () at the end of the method name.
+->The Math.Min method returns the smaller of the two arguments passed to it
+
+Defining Methods:
+Example:
+static void OurMethodName()//outside of main function
+{
+  Console.WriteLine("Hi there!");
+}
+for calling: OurMethodName(); inside main function.
+
+->The return keyword tells the computer to exit the method and return a value to wherever the method was called.
+
+Method Overloading:
+ they have the same name, overloads have either:
+different parameter types
+different number of parameters
+Overloading is useful when we want the same method to have different behavior based on its inputs.
+Ex:Math.Round(3.14159, 2); // returns 3.14
+Math.Round(3.14159); // returns 3
+
+-->We can overload a method by defining two methods with the same name but different sets of parameters.
+Out Parameters:
+-->public static bool TryParse (string s, out int result);
+The method returns a bool and accepts a string and a variable that has been declared of type int as input.
+->int number;
+bool success = Int32.TryParse("10602", out number); 
+// number is 10602 and success is true
+int number2;
+bool success2 = Int32.TryParse(" !!! ", out number2);
+// number2 is 0 and success2 is false
+
+->For a shortcut, we can declare the int variable within the method call:
+bool success = Int32.TryParse("10602", out int number);
+
+ The method’s signature looks like this:
+->public static bool TryParse (string s, out int result);
+Code:
+using System;
+namespace OutParameters
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      string scoreAsString = "85.6";
+      string statement = "Hello World";
+      
+      double scoreAsDouble;
+      bool outcome;
+
+      outcome = Double.TryParse(scoreAsString, out scoreAsDouble);
+
+      Console.WriteLine($"{outcome}, {scoreAsDouble}");
+
+      string whispered = Whisper(statement, out bool marker);
+      Console.WriteLine(whispered);
+    }  
+
+    static string Whisper(string phrase, out bool wasWhisperCalled)
+    {
+      wasWhisperCalled = true;
+      return phrase.ToLower();
+    }
+	}
+}
+Output:
+True, 85.6
+hello world
+
+Optional Parameters:
+->If someone calls our method without all the parameters, the method will assign a default value to those missing parameters.
+We use the equals sign (=) when defining an optional method parameter.
+Ex:
+static void OurMethodName(string message, string punctuation = ".")
+{
+  Console.WriteLine(message + punctuation);
+}
+static void Main(string[] args)
+{
+  OurMethodName("I'm hungry", "!"); // prints "I'm hungry!"
+  OurMethodName("I'm hungry");  // prints "I'm hungry."
+}
+
+Named Arguments:
+Named arguments allow us to specify which parameter a given argument should be assigned to.
+Ex: 
+static void OurMethodName(int a = 0, int b = 0, int c = 0, int d = 0, int e = 0) 
+{
+  Console.WriteLine($"{a}{b}{c}{d}{e}");
+}
+OurMethodName(d: 4);// Prints "00040"
+->OurMethodName(5, 3, d: 2) 
+// a is 2, b is 1, d is 4; Prints "53020"
+OurMethodName(d: 4, 2, 1) // Error!
+
+->Named arguments aren’t always necessary, but they can be useful when:
+a method has many optional parameters
+we want to differentiate between similar arguments
+
+->Key points:
+1.Arguments are values passed to a method call, between the parentheses.
+2.Parameters in a method signature define variables that will serve as placeholders for arguments passed when the method is called.
+3.Method parameters can only be used within the method body.
+4.In method overloading, multiple methods can have the same name, as long as they have different method signatures.
+5.Method parameters can be optional if given a default using equals (=) syntax.
+6.When calling a method, arguments can be passed by position or by name. If using names, use the colon (:) syntax.
+7.Methods return values with the return keyword.
+8.We can define a type and value for a method to return.
+9.Every method has a return type, designated in its method signature. That type must match the type of the value actually returned.
+10.If a method returns no type, its return type is void.
+11.out parameters can be used to return multiple values from a method.
+
+
+
+
