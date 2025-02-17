@@ -1,1 +1,7 @@
+-->A list, or List<T>, is a generic, sequential data structure. The specific type that it contains is specified upon instantiation.
+->The list class is in a group of generic collections. They don’t exist in the default set of System classes, so we need to reference them with this line.
+->Generic collections are data structures that are defined with a generic type. Each class is defined generally without a specific type in mind. When we make an actual instance, 
+we define the specific type:
+List<string> citiesList = new List<string>();
+List<Object> objects = new List<Object>();
 
