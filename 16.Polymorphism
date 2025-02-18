@@ -1,0 +1,22 @@
+->Polymorphism allows method with the same name to perform different actions depending on the object.
+Understanding Virtual Methods and Overriding Methods
+-----------------------------------------------------
+To enable Polymorphism within our class structure, we will need to create virtual methods within a base class. We can then override those
+in the derived class.
+-->A virtual method is a method in the base class that can be overridden in derived classes. 
+The virtual keyword is used to allow derived classes to provide specific implementations of this method.
+ex:public class Animal
+{
+  public virtual void MakeSound()
+  {
+    Console.WriteLine("Animal makes a sound.");
+  }
+}
+ex:public class Dog : Animal
+{
+  public override void MakeSound()
+  {
+    Console.WriteLine("Dog barks.");
+  }
+}
+-------------->Upcasting Objects
