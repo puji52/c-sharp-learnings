@@ -1,6 +1,5 @@
 ->Polymorphism allows method with the same name to perform different actions depending on the object.
-Understanding Virtual Methods and Overriding Methods
------------------------------------------------------
+------------------------Understanding Virtual Methods and Overriding Methods--------------------------------
 To enable Polymorphism within our class structure, we will need to create virtual methods within a base class. We can then override those
 in the derived class.
 -->A virtual method is a method in the base class that can be overridden in derived classes. 
@@ -19,4 +18,53 @@ ex:public class Dog : Animal
     Console.WriteLine("Dog barks.");
   }
 }
--------------->Upcasting Objects
+--------------------------------Upcasting Objects--------------------------------
+Upcasting in C# refers to converting a derived class instance to a base class instance. To upcast, we assign a derived instance to a 
+variable with the base class type.
+-->Syntax: ****Upcasting an existing instance**** : BaseClass upcastInstance = derivedInstance;
+-->Syntax: ****Upcasting during initialization****: BaseClass baseVariable = new DerivedClass();
+-->Ex:
+define a variable myEmployee and set it to an upcast new Engineer object.
+Employee myEmployee=new Engineer();
+
+-->An instance that has been upcast to a base class instance will have access to the following:
+The derived class’s overridden methods.
+The base class’s non-virtual methods.
+-->methods in the derived class that do not override base class methods won't be accessible from an upcast instance.
+
+--------------------------------Downcasting Objects----------------------------
+It means converting an upcast instance to a derived one. This process allows us to access the derived class members that are unavailable in the 
+base class.
+->Downcasting can fail if the objects are not compatible, so it must be done carefully. Downcasting is an explicit operation and requires
+extra syntax:
+BaseClass upcastInstance = new DerivedClass() 
+DerivedClass downcastInstance = (DerviedClass)upcastInstance;
+
+->In the above example, an upcast instance is created. To downcast, an explicit use of the derived class type is placed before the 
+upcast instance. This gives the downcastInstance access to both the BaseClass and the DerivedClass
+
+--------------------------------Using 'is' Operators-----------------------------
+The is operator checks if an object is compatible with a given type.
+-->The result of the is operator is true if an object can be upcast or downcast to a specified type and false if it can not. 
+This can be a useful check before performing these casting operations.
+
+--------------------------------Using 'as' Operators------------------------------
+The as operator attempts to cast an object to a given type, returning null if the cast fails.
+This is useful for safely trying to downcast an object to a more derived type without risking an exception.
+--> the as operator can be used to upcast as well, but it is more common to use the implicit assignment statement when upcasting.
+Ex:
+Engineer engineer = myEmployeeEngineer1 as Engineer; attempts to cast myEmployeeEngineer1 to an Engineer. If the cast is successful, 
+engineer will reference the Engineer object. If the cast fails, engineer will be null.Here Engineer is derived and Employee is base.
+
+--------------------------------Polymorphism and Abstract Classes------------------------------
+-->an abstract class provides a blueprint of what derived classes need to implement. This is done through the use of implemented and 
+unimplemented methods.
+-->Abstract classes can not be instantiated, but like all base classes, they can supply implemented methods. These methods can be
+virtual for derived classes to override.
+-->Abstract classes can also contain abstract methods, which are not implemented in the abstract class and therefore must be implemented 
+by the derived class.
+-->The "abstract" keyword is used to specify both abstract classes and methods.
+
+
+
+
