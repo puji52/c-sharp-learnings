@@ -1,0 +1,49 @@
+----------------------------------------------Build an Interface--------------------------------------------
+The interface is a set of properties, methods, and other members. They are declared with a signature, but their behaviors are not defined.
+A class implements an interface if it defines those properties, methods, and other members.
+Ex:Every interface should have a name starting with “I” (capital “i”, NOT lowercase “L” or number “1”). This is useful to remind other 
+developers and our future selves that this is an interface, not a class.
+Syntax Ex:
+interface IAutomobile
+{
+}
+example of a fake property and method:
+interface IAutomobile
+{
+  string Id { get; }
+  void Vroom();
+}
+->An interface is a set of actions and values, but it doesn’t specify how they work. 
+->the members of an interface are all public unless a different access modifier is specified.
+Diff between class and interface
+->we cannot create instances of an interface. Because of this, interfaces cannot contain instance fields or constructors. 
+These members must be defined on classes that implement the interface.
+
+------------------------------------------------Implementing an Interface------------------------------------------------
+a class implements an interface using the colon syntax:
+class Sedan : IAutomobile
+{
+}
+->An interface says what a class must have. It does not say what a class must not have. 
+->A class in C# can even implement multiple interfaces by separating the interface names with a comma:
+Ex:
+class Cat : IQuadruped, IFeline
+{  
+  // member implementation for both IQuadruped and IFeline
+}
+------------------------------------------------Using Interfaces and Inheritance------------------------------------------
+-->A class can both perform inheritance and interface just by using colon : after class name 
+Ex:Below Vehicle is base class and IAutomobile is an interface
+class Sedan : Vehicle, IAutomobile
+{
+}
+-->Note that when inheriting and implementing an interface, the superclass must be specified first, followed by any interfaces the
+class will implement, separated by commas.
+
+
+
+
+
+
+
+
