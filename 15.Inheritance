@@ -1,1 +1,46 @@
+//  Superclass and Subclass  //
+one class inherits the members of another class. The class that inherits is called a subclass or derived class. 
+The other class is called a superclass or base class.
+->A class may only inherit directly from one superclass.
 
+-->A superclass is defined just like any other class:
+class Vehicle
+{
+}
+
+->And a subclass inherits, or “extends”, a superclass using the colon syntax:
+class Sedan : Vehicle
+{
+}
+
+->Access Inherited Members with Protected
+->A protected member can be accessed by the current class and any class that inherits from it. In this case, if the setter for 
+Vehicle.Wheels is protected, then any Vehicle, Truck, or Sedan instance can call it.
+
+->Remove Duplicate Code in base class when you inherit functionality from super class.
+->Access Inherited Members with Base
+We can refer to a superclass inside a subclass with the base keyword.
+
+->For example, in Sedan:
+base.SpeedUp(); refers to the SpeedUp() method in Vehicle.
+
+There’s a special syntax for calling the superclass constructor:
+class Sedan : Vehicle
+{
+  public Sedan (double speed) : base(speed)
+  {
+  }
+}
+->The preceding code shows a Sedan that inherits from Vehicle. The Sedan constructor calls the Vehicle constructor with one argument, speed. 
+This works as long as Vehicle has a constructor with one parameter of type double.
+->Even if we don’t use base() in Sedan, it will call a Vehicle constructor. Without an explicit call to base(), any subclass constructor 
+will implicitly call the default parameterless constructor for its superclass. For example, this code implicitly calls Vehicle():
+class Sedan : Vehicle
+{
+  // Implicitly calls base(), aka Vehicle()
+  public Sedan (double speed)
+  {
+  }
+}
+//this code is equivalent to the above code
+This code will only work if the constructor Vehicle() exists. If it doesn’t, then an error will be thrown.
