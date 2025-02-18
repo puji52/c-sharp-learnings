@@ -1,0 +1,34 @@
+---------------------------------------------------------Object References--------------------------------------------------
+Classes are reference types.That means that when we create a new instance of a class and store it in a variable, the variable is a reference to the object.
+-------------------------------Value Types------------------------------
+->variables refer to a place in memory but value-type variables hold the actual data.
+->Every “primitive” data type is a value type, including:
+int
+double
+bool
+char
+->string works differently
+-------------------------------------------------------Reference vs. Value Comparison---------------------------------------------
+When we compare value types with ==, the C# compiler performs a value comparison. For example, this prints true because the value 6 is equal to the value 6:
+int int1 = 6;
+int int2 = 6;
+Console.WriteLine(int1 == int2);
+// Output: true
+When we compare reference types with ==, the C# compiler performs a referential comparison, which means it checks if two variables refer to the same memory location.
+-------------------------------------------------------References of Different Types--------------------------------------------------
+A reference only has access to members of the type it is defined as.
+In addition to referencing an instance with its class name, it can also be referenced using the name of any type in its inheritance hierarchy or of any interface it implements.
+-------------------------------------------------------Arrays of References-----------------------------------------------------------
+ex:
+IFlippable[] flippables = new IFlippable[] { new Novel(), new Novel(), new Encyclopedia(), new Encyclopedia()};
+->To Flip() each element, we can write a foreach loop:
+foreach (IFlippable f in flippables)
+{
+  f.Flip();
+}
+->We can only access the functionality defined in the interface. For example, we couldn’t access f.Title because Title isn’t a property defined in IFlippable.
+----------------------------------------------key points------------------------------------------
+->classes and interfaces are reference types. A variable of this type holds a reference to the data, not the data itself. This is different from value types like int and bool.
+->The equality operator (==) uses a referential comparison for reference types and a value comparison for value types.Multiple references can be created for a single object.
+->A reference and its corresponding object do not have to be the same type. For example, we can refer to a subclass object by an inherited superclass or implemented interface reference.
+->The functionality available to an object reference is determined by the reference’s type, not the object’s type.
