@@ -1,0 +1,40 @@
+In C#, there is one type of reference that can be used for all objects. It is aptly called Object.
+->Every class is derived from Object.
+->Since references can be upcast to any type in its inheritance hierarchy, then all types can be referenced as Objects:
+Object o1 = new Encyclopedia();
+Object o2 = new Novel();
+Object o3 = new Random();
+Object o4 = new Forest("Amazon");
+-->Why not use Object references for everything?: Using Object references means we treat everything as a generic Object. While this is flexible, it limits us because
+we can't use the specific features and functions of the actual type. We also lose the automatic type-checking that prevents errors.
+
+-->When are Object references useful?: Object references are handy when:
+We're unsure about the type of a variable, so we store it as a generic Object.
+We want to use standard Object methods that all objects have, like ToString().
+-->Value types and strings also inherit from Object
+
+-----------------------------------------------------Object Members----------------------------------------------------------
+Objects has several useful members and accessible by every type.
+->Equals(Object) — returns true if the current instance and the argument are equal (using value equality for value types and referential 
+equality for reference types)
+GetType() — returns the type of the object
+ToString() — returns a string describing the object
+
+-------------------------------------------------Overriding Object Members--------------------------------------------------
+->The Equals() and ToString() methods in Object are virtual, so they can be overridden.
+--------------------------------------------------Object in Plain Sight----------------------------------------------------------
+Console.WriteLine() uses ToString(), which is defined in Object. Every object needs some kind of string representation to be printed in 
+text. These two lines are equivalent:
+Console.WriteLine(b);
+Console.WriteLine(b.ToString());
+
+Keypoints:
+-->Console.WriteLine() uses ToString(), which is defined in Object. Every object needs some kind of string representation to be printed in
+text. These two lines are equivalent:
+-->Every type ultimately inherits from Object.
+-->Important members of Object include: Equals(), ToString(), and GetType().
+
+
+
+
+
