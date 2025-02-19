@@ -1,0 +1,64 @@
+Strings Can Act Like Values:
+String, or string, is a class that represents text. Technically, its value is stored as a collection of char objects.
+Since it is a class, it is a reference type. However, in some cases, it behaves like a value type:
+->A string reference will always point to the original object, so “modifying” one reference to a string will not affect other references.
+Ex:
+// Example 1
+string dog = "chihuahua";
+string tinyDog = dog;
+dog = "dalmation";
+Console.WriteLine(dog);
+// Output: "dalmation"
+Console.WriteLine(tinyDog);
+// Output: "chihuahua"
+
+// Example 2
+string s1 = "Hello ";
+string s2 = s1;
+s1 += "World";
+System.Console.WriteLine(s1);
+// Output: "Hello World"
+System.Console.WriteLine(s2);
+// Output: "Hello"
+
+->Comparing Strings with the equality operator (==) performs a value, not a referential comparison.
+Ex:
+string s = "hello";
+string t = "hello";
+// b is true
+bool b = (s == t);
+
+---------------------------------------------------Strings can be Null or Empty or Unassigned-----------------------------------------------
+->Like other reference types, string references can be null or unassigned, but they can also have a third “nothing” value: empty.
+Ex:
+// Unassigned
+string s;
+// Null
+string s2 = null;
+// Empty string
+string s3 = "";
+// Also empty string
+string s4 = String.Empty;
+// This prints true
+Console.WriteLine(s3 == s4);
+-->string method is Replace(), which takes two string arguments. It takes the string object it is called on, finds every instance of the
+first argument, and replaces each with the second argument, then returns the result:
+Ex:
+string s = "thud ud a test";
+s = s.Replace("ud", "is");
+Console.WriteLine(s); // Prints "this is a test"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
