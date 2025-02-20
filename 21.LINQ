@@ -73,7 +73,16 @@ var longLoudHeroes = heroes
 Introducing...[hero's name]!
 var vi=heroes.Select(h=>$"Introducing...{h}!");
 
-LINQ with Other Collections
+-----------------------------------------------------------------------LINQ with Other Collections-----------------------------------------------------------------------------
+LINQ can be used for lists.
+Syntax is same as arrays.
+
+List<string> heroesList = new List<string> { "Zoe", "Dorian", "Marlena" };
+var longLoudheroes = from h in heroesList
+  where h.Length >= 7
+  select h.ToUpper();
+// longLoudHeroes is [ "MARLENA" ]
+
 
 
 
